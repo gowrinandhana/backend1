@@ -1,10 +1,11 @@
 const express = require('express');
 
 const cors =require('cors');
+
 const { MongoClient } = require('mongodb'); 
 const app = express();
-
-
+app.use(cors())
+app.use(express.json())
 async function mongoConnect() {
     let client = new MongoClient('mongodb+srv://anshif:nesRoWgW5SqAD0yF@cluster0.8dtglzr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
     await client.connect();
